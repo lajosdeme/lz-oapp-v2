@@ -25,7 +25,7 @@ abstract contract OAppCore is IOAppCore, Initializable, Ownable {
      * @dev The delegate typically should be set as the owner of the contract.
      */
     function OAppCore_Init(address _endpoint, address _delegate) public onlyInitializing {
-        initialize(msg.sender);
+        Ownable_Init(msg.sender);
         endpoint = ILayerZeroEndpointV2(_endpoint);
 
         if (_delegate == address(0)) revert InvalidDelegate();
