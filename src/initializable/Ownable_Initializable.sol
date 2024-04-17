@@ -36,7 +36,7 @@ abstract contract Ownable is Context, Initializable {
     /**
      * @dev Initializes the contract setting the address provided by the deployer as the initial owner.
      */
-    function initialize(address initialOwner) public initializer {
+    function Ownable_Init(address initialOwner) public onlyInitializing {
         if (initialOwner == address(0)) {
             revert OwnableInvalidOwner(address(0));
         }
